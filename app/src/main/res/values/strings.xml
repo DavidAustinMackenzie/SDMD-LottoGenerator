@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">LottoGeneratorV2</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="randomFragment">Random fragment</string>
+    <string name="resultsFragment">Results fragment</string>
+    <string name="savedFragment">Saved fragment</string>
+    <string name="numberPlaceholder">00</string>
+    <string name="btnRandom">Generate Numbers</string>
+</resources>
