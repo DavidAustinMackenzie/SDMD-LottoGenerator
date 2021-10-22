@@ -23,6 +23,7 @@ class LottoAdaptor(private val lottoList:List<Lotto>):
 
     override fun getItemCount(): Int = lottoList.size
 
+
     inner class ViewHolder(private val v:View): RecyclerView.ViewHolder(v){
         //Get elements to display for each row
         val num1 = v.findViewById<TextView>(R.id.txtNum1)
@@ -33,7 +34,9 @@ class LottoAdaptor(private val lottoList:List<Lotto>):
         val num6 = v.findViewById<TextView>(R.id.txtNum6)
         val num7 = v.findViewById<TextView>(R.id.txtNum7)
         val num8 = v.findViewById<TextView>(R.id.txtNum8)
+        val txtRowHeading = v.findViewById<TextView>(R.id.txtRowHeading)
         fun bind(item: Lotto){
+            txtRowHeading.text = "Lotto Game " + item.game
             num1.text = item.num1.toString()
             num2.text = item.num2.toString()
             num3.text = item.num3.toString()
