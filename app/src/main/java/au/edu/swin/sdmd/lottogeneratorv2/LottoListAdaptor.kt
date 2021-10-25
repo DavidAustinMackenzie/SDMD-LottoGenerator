@@ -4,25 +4,27 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import au.edu.swin.sdmd.lottogeneratorv2.LottoListAdaptor.ViewHolder
 
-class LottoAdaptor(private val lottoList:List<Lotto>):
-    RecyclerView.Adapter<LottoAdaptor.ViewHolder>() {
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):
-                LottoAdaptor.ViewHolder{
-            val layoutInflater = LayoutInflater.from(parent.context)
-            val view = layoutInflater
-                .inflate(R.layout.layout_row, parent, false) as View
-            return ViewHolder(view)
-        }
+class LottoListAdaptor(private val lottoList:List<Lotto>) :
+    RecyclerView.Adapter<LottoListAdaptor.ViewHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):
+            LottoListAdaptor.ViewHolder {
+        val layoutInflater = LayoutInflater.from(parent.context)
+        val view = layoutInflater
+            .inflate(R.layout.layout_row, parent, false) as View
+        return ViewHolder(view)
+    }
 
-    override fun onBindViewHolder(holder: LottoAdaptor.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: LottoListAdaptor.ViewHolder, position: Int) {
         val item = lottoList[position]
         holder.bind(item)
     }
 
     override fun getItemCount(): Int = lottoList.size
-
 
     inner class ViewHolder(private val v:View): RecyclerView.ViewHolder(v){
         //Get elements to display for each row
@@ -35,6 +37,7 @@ class LottoAdaptor(private val lottoList:List<Lotto>):
         val num7 = v.findViewById<TextView>(R.id.txtNum7)
         val num8 = v.findViewById<TextView>(R.id.txtNum8)
         val txtRowHeading = v.findViewById<TextView>(R.id.txtRowHeading)
+
         fun bind(item: Lotto){
             txtRowHeading.text = "Lotto Game " + item.game
             num1.text = item.num1.toString()
@@ -47,4 +50,5 @@ class LottoAdaptor(private val lottoList:List<Lotto>):
             num8.text = item.pow1.toString()
         }
     }
+
 }

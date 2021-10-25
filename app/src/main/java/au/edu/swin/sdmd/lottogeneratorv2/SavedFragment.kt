@@ -7,10 +7,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import java.lang.reflect.TypeVariable
-import kotlin.random.Random
 
 // the fragment initialization parameters, e.g. currentLotto
 private const val CURRENTLOTTO = "currentLotto"
@@ -21,10 +21,6 @@ private const val CURRENTLOTTO = "currentLotto"
  * create an instance of this fragment.
  */
 class SavedFragment : Fragment() {
-    private var currentLotto = Lotto(0,0,0,0
-        ,0,0,0,0,0)
-    private var lottoList = ArrayList<Lotto>()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -40,11 +36,15 @@ class SavedFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_saved, container, false)
         val lottoView = view.findViewById<RecyclerView>(R.id.numberList)
 
-        //Get the Current Game Lotto from Shared Preferences
-        currentLotto = checkSharedPrefs()
-        lottoList.add(currentLotto)
-        lottoView.adapter = LottoAdaptor(lottoList)
-        lottoView.layoutManager = LinearLayoutManager(container?.context)
+        //Create Database Reference
+        val db = LottoRoomDatabase(container?.context!!)
+
+        val lottoList = db.lottoDao().getGamesSortedById()
+        lottoList.forEach{
+            Log.i("LOTTO_ID",it.id.toString())
+        }
+        lottoView.adapter = LottoListAdaptor(lottoList)
+        lottoView.layoutManager = LinearLayoutManager(context)
 
         return view
     }
@@ -64,24 +64,4 @@ class SavedFragment : Fragment() {
                 }
             }
     }
-
-    //Used to retrieve previously saved Lotto Game
-    private fun checkSharedPrefs():Lotto{
-        currentLotto = Lotto(0,0,0,0,0,0,
-            0,0,0)
-        val sharedPref = this.context?.getSharedPreferences("SAVEDGAME",
-            Context.MODE_PRIVATE)
-        sharedPref?.let{
-            currentLotto.num1 = sharedPref.getInt("num1",0)
-            currentLotto.num2 = sharedPref.getInt("num2",0)
-            currentLotto.num3 = sharedPref.getInt("num3",0)
-            currentLotto.num4 = sharedPref.getInt("num4",0)
-            currentLotto.num5 = sharedPref.getInt("num5",0)
-            currentLotto.num6 = sharedPref.getInt("num6",0)
-            currentLotto.num7 = sharedPref.getInt("num7",0)
-            currentLotto.pow1 = sharedPref.getInt("pow1",0)
-        }
-        return currentLotto
-    }
-
 }

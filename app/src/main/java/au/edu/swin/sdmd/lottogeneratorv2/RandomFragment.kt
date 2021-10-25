@@ -1,6 +1,7 @@
 package au.edu.swin.sdmd.lottogeneratorv2
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -10,6 +11,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.core.os.bundleOf
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -34,6 +37,8 @@ class RandomFragment : Fragment() {
     private lateinit var txtNum6: TextView
     private lateinit var txtNum7: TextView
     private lateinit var txtNum8: TextView
+    private lateinit var lottoList: List<Lotto>
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,13 +51,19 @@ class RandomFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         val view = inflater.inflate(R.layout.fragment_random,container,false)
+        //Create Database Reference
+        val db = LottoRoomDatabase(container?.context!!)
+        //Get the current list of Lotto Games
+        lottoList = db.lottoDao().getGamesSortedById()
 
         //Get the current lotto game details if they exist from SharedPreferences
         currentLotto = checkSharedPrefs()
 
         //Get input elements
         val btnRandom = view.findViewById<Button>(R.id.btnRandom)
+        val btnReset = view.findViewById<Button>(R.id.btnReset)
         txtNum1 = view.findViewById<TextView>(R.id.txtRandomNum1)
         txtNum2 = view.findViewById<TextView>(R.id.txtRandomNum2)
         txtNum3 = view.findViewById<TextView>(R.id.txtRandomNum3)
@@ -72,6 +83,7 @@ class RandomFragment : Fragment() {
         txtNum7.text = currentLotto.num7.toString()
         txtNum8.text = currentLotto.pow1.toString()
 
+        //Used to generate a new lotto game and display on fragment
         btnRandom.setOnClickListener{
             val newLotto = getRandomLottoGame()
             //Insert value into the database
@@ -100,12 +112,22 @@ class RandomFragment : Fragment() {
                 putInt("pow1",newLotto.pow1)
                 apply()
             }
+
+            //Insert new Lotto Game into database
+            db.lottoDao().insert(newLotto)
         }
+
+        //Used to clear all records saved in database
+        btnReset.setOnClickListener{
+            db.lottoDao().deleteAll()
+        }
+
         return view
 
     }
 
     companion object {
+        const val EXTRA_REPLY = "com.example.android.lottolistsql.REPLY"
         /**
          * Use this factory method to create a new instance of
          * this fragment using the provided parameters.
@@ -151,7 +173,7 @@ class RandomFragment : Fragment() {
         var powerballNumber = Random.nextInt(1,21)
 
         val newLotto = Lotto(0,numberList[0],numberList[1],numberList[2],numberList[3],
-            numberList[4],numberList[5],numberList[6],powerballNumber)
+            numberList[4],numberList[5],numberList[6],powerballNumber,(lottoList.size+1))
 
         Log.i("NUMBER_ID",newLotto.id.toString())
 

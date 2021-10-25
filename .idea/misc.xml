@@ -3,9 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/OneDrive - Swinburne University/UNI/Software_For_Mobile_Devices/AndroidStudioProjects/LottoGeneratorV2/app/src/main/res/drawable/ic_baseline_article_24.xml" value="0.32222222222222224" />
         <entry key="..\:/OneDrive - Swinburne University/UNI/Software_For_Mobile_Devices/AndroidStudioProjects/LottoGeneratorV2/app/src/main/res/layout/activity_main.xml" value="0.12222222222222222" />
         <entry key="..\:/OneDrive - Swinburne University/UNI/Software_For_Mobile_Devices/AndroidStudioProjects/LottoGeneratorV2/app/src/main/res/layout/bottom_nav_menu.xml" value="0.12222222222222222" />
-        <entry key="..\:/OneDrive - Swinburne University/UNI/Software_For_Mobile_Devices/AndroidStudioProjects/LottoGeneratorV2/app/src/main/res/layout/fragment_random.xml" value="0.75" />
+        <entry key="..\:/OneDrive - Swinburne University/UNI/Software_For_Mobile_Devices/AndroidStudioProjects/LottoGeneratorV2/app/src/main/res/layout/fragment_random.xml" value="0.5" />
         <entry key="..\:/OneDrive - Swinburne University/UNI/Software_For_Mobile_Devices/AndroidStudioProjects/LottoGeneratorV2/app/src/main/res/layout/fragment_results.xml" value="0.6375" />
         <entry key="..\:/OneDrive - Swinburne University/UNI/Software_For_Mobile_Devices/AndroidStudioProjects/LottoGeneratorV2/app/src/main/res/layout/fragment_saved.xml" value="0.35755813953488375" />
         <entry key="..\:/OneDrive - Swinburne University/UNI/Software_For_Mobile_Devices/AndroidStudioProjects/LottoGeneratorV2/app/src/main/res/layout/layout_row.xml" value="0.67" />

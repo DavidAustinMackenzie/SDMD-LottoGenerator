@@ -17,10 +17,9 @@
             android:id="@+id/btnRandom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="460dp"
+            android:layout_marginStart="52dp"
+            android:layout_marginTop="456dp"
             android:text="@string/btnRandom"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -120,6 +119,16 @@
             android:text="@string/numberPlaceholder"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             app:layout_constraintStart_toEndOf="@+id/txtRandomNum2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnReset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="456dp"
+            android:text="@string/btnRest"
+            app:layout_constraintStart_toEndOf="@+id/btnRandom"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
