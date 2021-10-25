@@ -13,6 +13,101 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="-14dp">
 
+        <TableLayout
+            android:id="@+id/tblCurrentGame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="50dp"
+            android:stretchColumns="*">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/txtRandomNum1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/numberPlaceholder"
+                    android:gravity="center"
+                    android:layout_margin="8dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+                <TextView
+                    android:id="@+id/txtRandomNum2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/numberPlaceholder"
+                    android:gravity="center"
+                    android:layout_margin="8dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+                <TextView
+                    android:id="@+id/txtRandomNum3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/numberPlaceholder"
+                    android:gravity="center"
+                    android:layout_margin="8dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+                <TextView
+                    android:id="@+id/txtRandomNum4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/numberPlaceholder"
+                    android:gravity="center"
+                    android:layout_margin="8dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/txtRandomNum5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/numberPlaceholder"
+                    android:gravity="center"
+                    android:layout_margin="8dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+                <TextView
+                    android:id="@+id/txtRandomNum6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/numberPlaceholder"
+                    android:gravity="center"
+                    android:layout_margin="8dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+                <TextView
+                    android:id="@+id/txtRandomNum7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/numberPlaceholder"
+                    android:gravity="center"
+                    android:layout_margin="8dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+                <TextView
+                    android:id="@+id/txtRandomNum8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/numberPlaceholder"
+                    android:gravity="center"
+                    android:layout_margin="8dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            </TableRow>
+
+        </TableLayout>
+
         <Button
             android:id="@+id/btnRandom"
             android:layout_width="wrap_content"
@@ -29,96 +124,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="@string/txtRandomHeading"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/txtRandomNum1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="92dp"
-            android:layout_marginTop="36dp"
-            android:text="@string/numberPlaceholder"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/txtRandomNum8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="28dp"
-            android:text="@string/numberPlaceholder"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            app:layout_constraintStart_toEndOf="@+id/txtRandomNum7"
-            app:layout_constraintTop_toBottomOf="@+id/txtRandomNum4" />
-
-        <TextView
-            android:id="@+id/txtRandomNum7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="28dp"
-            android:text="@string/numberPlaceholder"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            app:layout_constraintStart_toEndOf="@+id/txtRandomNum6"
-            app:layout_constraintTop_toBottomOf="@+id/txtRandomNum3" />
-
-        <TextView
-            android:id="@+id/txtRandomNum6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="28dp"
-            android:text="@string/numberPlaceholder"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            app:layout_constraintStart_toEndOf="@+id/txtRandomNum5"
-            app:layout_constraintTop_toBottomOf="@+id/txtRandomNum2" />
-
-        <TextView
-            android:id="@+id/txtRandomNum5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="92dp"
-            android:layout_marginTop="28dp"
-            android:text="@string/numberPlaceholder"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtRandomNum1" />
-
-        <TextView
-            android:id="@+id/txtRandomNum4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="36dp"
-            android:text="@string/numberPlaceholder"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            app:layout_constraintStart_toEndOf="@+id/txtRandomNum3"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/txtRandomNum2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="36dp"
-            android:text="@string/numberPlaceholder"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            app:layout_constraintStart_toEndOf="@+id/txtRandomNum1"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/txtRandomNum3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="36dp"
-            android:text="@string/numberPlaceholder"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            app:layout_constraintStart_toEndOf="@+id/txtRandomNum2"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button

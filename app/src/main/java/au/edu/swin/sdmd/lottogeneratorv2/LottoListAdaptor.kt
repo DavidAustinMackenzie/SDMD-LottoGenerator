@@ -4,10 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import au.edu.swin.sdmd.lottogeneratorv2.LottoListAdaptor.ViewHolder
 
 class LottoListAdaptor(private val lottoList:List<Lotto>) :
     RecyclerView.Adapter<LottoListAdaptor.ViewHolder>() {
@@ -39,7 +36,7 @@ class LottoListAdaptor(private val lottoList:List<Lotto>) :
         val txtRowHeading = v.findViewById<TextView>(R.id.txtRowHeading)
 
         fun bind(item: Lotto){
-            txtRowHeading.text = "Lotto Game " + item.game
+            txtRowHeading.text = "Lotto Game: " + item.id
             num1.text = item.num1.toString()
             num2.text = item.num2.toString()
             num3.text = item.num3.toString()
@@ -50,5 +47,4 @@ class LottoListAdaptor(private val lottoList:List<Lotto>) :
             num8.text = item.pow1.toString()
         }
     }
-
 }

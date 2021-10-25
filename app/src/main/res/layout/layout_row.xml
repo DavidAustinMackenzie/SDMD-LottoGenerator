@@ -5,93 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/txtNum4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="36dp"
-        android:text="@string/numberPlaceholder"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintStart_toEndOf="@+id/txtNum3"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/txtNum2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="36dp"
-        android:text="@string/numberPlaceholder"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintStart_toEndOf="@+id/txtNum1"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/txtNum1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="36dp"
-        android:text="@string/numberPlaceholder"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/txtNum3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="36dp"
-        android:text="@string/numberPlaceholder"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintStart_toEndOf="@+id/txtNum2"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/txtNum7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="28dp"
-        android:text="@string/numberPlaceholder"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintStart_toEndOf="@+id/txtNum6"
-        app:layout_constraintTop_toBottomOf="@+id/txtNum3" />
-
-    <TextView
-        android:id="@+id/txtNum8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="28dp"
-        android:text="@string/numberPlaceholder"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintStart_toEndOf="@+id/txtNum7"
-        app:layout_constraintTop_toBottomOf="@+id/txtNum4" />
-
-    <TextView
-        android:id="@+id/txtNum6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="28dp"
-        android:text="@string/numberPlaceholder"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintStart_toEndOf="@+id/txtNum5"
-        app:layout_constraintTop_toBottomOf="@+id/txtNum2" />
-
-    <TextView
-        android:id="@+id/txtNum5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="28dp"
-        android:text="@string/numberPlaceholder"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNum1" />
 
     <TextView
         android:id="@+id/txtRowHeading"
@@ -99,9 +12,122 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/txtRowHeading"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TableLayout
+        android:id="@+id/tblOutput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:stretchColumns="*"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtRowHeading">
+
+        <TableRow
+            android:id="@+id/tblRow1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            >
+
+            <TextView
+                android:id="@+id/txtNum1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/numberPlaceholder"
+                android:background="@drawable/green_circle"
+                android:gravity="center"
+                android:layout_margin="8dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtNum2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/numberPlaceholder"
+                android:background="@drawable/green_circle"
+                android:gravity="center"
+                android:layout_margin="8dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            <TextView
+                android:id="@+id/txtNum3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/numberPlaceholder"
+                android:background="@drawable/green_circle"
+                android:gravity="center"
+                android:layout_margin="8dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/txtNum4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/numberPlaceholder"
+                android:background="@drawable/green_circle"
+                android:gravity="center"
+                android:layout_margin="8dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                app:layout_constraintTop_toTopOf="parent" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tblRow2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txtNum5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/numberPlaceholder"
+                android:background="@drawable/green_circle"
+                android:gravity="center"
+                android:layout_margin="8dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            <TextView
+                android:id="@+id/txtNum6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/numberPlaceholder"
+                android:background="@drawable/green_circle"
+                android:gravity="center"
+                android:layout_margin="8dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            <TextView
+                android:id="@+id/txtNum7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/numberPlaceholder"
+                android:background="@drawable/green_circle"
+                android:gravity="center"
+                android:layout_margin="8dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            <TextView
+                android:id="@+id/txtNum8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/numberPlaceholder"
+                android:background="@drawable/purple_circle"
+                android:gravity="center"
+                android:layout_margin="8dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+        </TableRow>
+
+
+    </TableLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

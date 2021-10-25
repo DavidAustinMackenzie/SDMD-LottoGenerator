@@ -75,13 +75,21 @@ class RandomFragment : Fragment() {
 
         //Assign Shared Preferences from Saved Game
         txtNum1.text = currentLotto.num1.toString()
+        txtNum1.background = resources.getDrawable(R.drawable.green_circle)
         txtNum2.text = currentLotto.num2.toString()
+        txtNum2.background = resources.getDrawable(R.drawable.green_circle)
         txtNum3.text = currentLotto.num3.toString()
+        txtNum3.background = resources.getDrawable(R.drawable.green_circle)
         txtNum4.text = currentLotto.num4.toString()
+        txtNum4.background = resources.getDrawable(R.drawable.green_circle)
         txtNum5.text = currentLotto.num5.toString()
+        txtNum5.background = resources.getDrawable(R.drawable.green_circle)
         txtNum6.text = currentLotto.num6.toString()
+        txtNum6.background = resources.getDrawable(R.drawable.green_circle)
         txtNum7.text = currentLotto.num7.toString()
+        txtNum7.background = resources.getDrawable(R.drawable.green_circle)
         txtNum8.text = currentLotto.pow1.toString()
+        txtNum8.background = resources.getDrawable(R.drawable.purple_circle)
 
         //Used to generate a new lotto game and display on fragment
         btnRandom.setOnClickListener{
@@ -119,7 +127,18 @@ class RandomFragment : Fragment() {
 
         //Used to clear all records saved in database
         btnReset.setOnClickListener{
+            //Clear all database records
             db.lottoDao().deleteAll()
+
+            //Reset TextViews to 00
+            txtNum1.text = "00"
+            txtNum2.text = "00"
+            txtNum3.text = "00"
+            txtNum4.text = "00"
+            txtNum5.text = "00"
+            txtNum6.text = "00"
+            txtNum7.text = "00"
+            txtNum8.text = "00"
         }
 
         return view
