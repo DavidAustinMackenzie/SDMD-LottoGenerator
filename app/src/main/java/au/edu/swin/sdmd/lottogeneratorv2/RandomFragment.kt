@@ -75,21 +75,13 @@ class RandomFragment : Fragment() {
 
         //Assign Shared Preferences from Saved Game
         txtNum1.text = currentLotto.num1.toString()
-        txtNum1.background = resources.getDrawable(R.drawable.green_circle)
         txtNum2.text = currentLotto.num2.toString()
-        txtNum2.background = resources.getDrawable(R.drawable.green_circle)
         txtNum3.text = currentLotto.num3.toString()
-        txtNum3.background = resources.getDrawable(R.drawable.green_circle)
         txtNum4.text = currentLotto.num4.toString()
-        txtNum4.background = resources.getDrawable(R.drawable.green_circle)
         txtNum5.text = currentLotto.num5.toString()
-        txtNum5.background = resources.getDrawable(R.drawable.green_circle)
         txtNum6.text = currentLotto.num6.toString()
-        txtNum6.background = resources.getDrawable(R.drawable.green_circle)
         txtNum7.text = currentLotto.num7.toString()
-        txtNum7.background = resources.getDrawable(R.drawable.green_circle)
         txtNum8.text = currentLotto.pow1.toString()
-        txtNum8.background = resources.getDrawable(R.drawable.purple_circle)
 
         //Used to generate a new lotto game and display on fragment
         btnRandom.setOnClickListener{
@@ -130,24 +122,39 @@ class RandomFragment : Fragment() {
             //Clear all database records
             db.lottoDao().deleteAll()
 
-            //Reset TextViews to 00
-            txtNum1.text = "00"
-            txtNum2.text = "00"
-            txtNum3.text = "00"
-            txtNum4.text = "00"
-            txtNum5.text = "00"
-            txtNum6.text = "00"
-            txtNum7.text = "00"
-            txtNum8.text = "00"
+            //Reset TextViews to 0
+            txtNum1.text = "0"
+            txtNum2.text = "0"
+            txtNum3.text = "0"
+            txtNum4.text = "0"
+            txtNum5.text = "0"
+            txtNum6.text = "0"
+            txtNum7.text = "0"
+            txtNum8.text = "0"
+
+            //Clear values from saved preferences when Reset button is clicked
+            var newLotto = Lotto(0,0,0,0,0,0,
+            0,0,0,0)
+            //Use the values to be passed to SavedFragment
+            val sharedPref = container?.context?.getSharedPreferences("SAVEDGAME",
+                Context.MODE_PRIVATE) ?: return@setOnClickListener
+            with(sharedPref.edit()){
+                putInt("num1",newLotto.num1)
+                putInt("num2",newLotto.num2)
+                putInt("num3",newLotto.num3)
+                putInt("num4",newLotto.num4)
+                putInt("num5",newLotto.num5)
+                putInt("num6",newLotto.num6)
+                putInt("num7",newLotto.num7)
+                putInt("pow1",newLotto.pow1)
+                apply()
+            }
         }
-
         return view
-
     }
 
     companion object {
-        const val EXTRA_REPLY = "com.example.android.lottolistsql.REPLY"
-        /**
+         /**
          * Use this factory method to create a new instance of
          * this fragment using the provided parameters.
          *

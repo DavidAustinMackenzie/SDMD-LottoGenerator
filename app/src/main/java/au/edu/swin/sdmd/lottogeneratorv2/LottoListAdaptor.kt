@@ -1,5 +1,6 @@
 package au.edu.swin.sdmd.lottogeneratorv2
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -45,6 +46,7 @@ class LottoListAdaptor(private val lottoList:List<Lotto>) :
             num6.text = item.num6.toString()
             num7.text = item.num7.toString()
             num8.text = item.pow1.toString()
+
         }
     }
 }

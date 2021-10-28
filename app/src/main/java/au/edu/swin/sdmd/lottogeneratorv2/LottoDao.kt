@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface LottoDao {
-    @Query("SELECT * FROM lotto_table ORDER BY id ASC")
+    @Query("SELECT * FROM lotto_table ORDER BY id DESC")
     fun getGamesSortedById(): List<Lotto>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)

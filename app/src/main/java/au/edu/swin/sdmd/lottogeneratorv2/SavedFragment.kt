@@ -40,9 +40,9 @@ class SavedFragment : Fragment() {
         val db = LottoRoomDatabase(container?.context!!)
 
         val lottoList = db.lottoDao().getGamesSortedById()
-        lottoList.forEach{
+/*        lottoList.forEach{
             Log.i("LOTTO_ID",it.id.toString())
-        }
+        }*/
         lottoView.adapter = LottoListAdaptor(lottoList)
         lottoView.layoutManager = LinearLayoutManager(context)
 
