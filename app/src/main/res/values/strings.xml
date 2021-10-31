@@ -5,7 +5,10 @@
     <string name="savedFragment">Saved fragment</string>
     <string name="numberPlaceholder">00</string>
     <string name="btnRandom">Generate New Game</string>
-    <string name="btnRest">Clear Games</string>
+    <string name="btnRest">Clear All Games</string>
     <string name="txtRowHeading">Lotto Game 1</string>
     <string name="txtRandomHeading">Current Lotto Game</string>
+    <string name="txtResult">Lotto Draw</string>
+    <string name="btnResult">Get Results</string>
+    <string name="btnUpdate">Update this game</string>
 </resources>

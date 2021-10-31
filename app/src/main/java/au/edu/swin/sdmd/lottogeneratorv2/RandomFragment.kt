@@ -58,8 +58,14 @@ class RandomFragment : Fragment() {
         //Get the current list of Lotto Games
         lottoList = db.lottoDao().getGamesSortedById()
 
-        //Get the current lotto game details if they exist from SharedPreferences
-        currentLotto = checkSharedPrefs()
+        //Used to check if the current game has been saved in Shared Preferences if
+        //there is at least 1 item in the list
+        if(lottoList.isNotEmpty()){
+            //Get the current lotto game details if they exist from SharedPreferences
+            currentLotto = checkSharedPrefs()
+        }else{
+            currentLotto = Lotto(0,0,0,0,0,0,0,0,0)
+        }
 
         //Get input elements
         val btnRandom = view.findViewById<Button>(R.id.btnRandom)
@@ -115,6 +121,9 @@ class RandomFragment : Fragment() {
 
             //Insert new Lotto Game into database
             db.lottoDao().insert(newLotto)
+
+            //Update lotto list variable
+            lottoList = db.lottoDao().getGamesSortedById()
         }
 
         //Used to clear all records saved in database

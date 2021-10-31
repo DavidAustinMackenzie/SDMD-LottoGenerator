@@ -1,9 +1,6 @@
 package au.edu.swin.sdmd.lottogeneratorv2
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -14,6 +11,13 @@ interface LottoDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insert(lotto:Lotto)
 
+    @Delete
+    fun delete(lotto: Lotto)
+
     @Query("DELETE FROM lotto_table")
     fun deleteAll()
+
+    @Update
+    fun update(lotto: Lotto)
+
 }

@@ -7,8 +7,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -21,6 +23,7 @@ private const val CURRENTLOTTO = "currentLotto"
  * create an instance of this fragment.
  */
 class SavedFragment : Fragment() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -39,13 +42,32 @@ class SavedFragment : Fragment() {
         //Create Database Reference
         val db = LottoRoomDatabase(container?.context!!)
 
-        val lottoList = db.lottoDao().getGamesSortedById()
-/*        lottoList.forEach{
-            Log.i("LOTTO_ID",it.id.toString())
-        }*/
-        lottoView.adapter = LottoListAdaptor(lottoList)
-        lottoView.layoutManager = LinearLayoutManager(context)
+        //Get all the records from the database
+        var lottoList = db.lottoDao().getGamesSortedById()
+        var lottoListArray = arrayListOf<Lotto>()
+        lottoListArray.addAll(lottoList)
+        var adaptor = LottoListAdaptor(lottoListArray)
 
+        //Get the current row that is being swiped and remove it
+        val swipeGesture = object:LottoSwipeGesture(container?.context!!){
+            override fun onSwiped(view: RecyclerView.ViewHolder,direction:Int){
+                when(direction){
+                    ItemTouchHelper.RIGHT ->{
+                        var oldLotto = lottoList[view.adapterPosition]
+                        db.lottoDao().delete(oldLotto)
+                        adaptor.deleteItem(view.adapterPosition)
+                        Toast.makeText(context,"Lotto Game: ${oldLotto.game} deleted!",
+                            Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+        }
+        //Add swipe functionality to RecyclerView
+        val touchHelper = ItemTouchHelper(swipeGesture)
+        touchHelper.attachToRecyclerView(lottoView)
+
+        lottoView.adapter = adaptor
+        lottoView.layoutManager = LinearLayoutManager(context)
         return view
     }
 
