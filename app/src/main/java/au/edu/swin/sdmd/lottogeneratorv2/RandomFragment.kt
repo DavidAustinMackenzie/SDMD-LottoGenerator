@@ -1,7 +1,6 @@
 package au.edu.swin.sdmd.lottogeneratorv2
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -10,12 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import androidx.core.os.bundleOf
-import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
-import androidx.navigation.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import java.util.concurrent.ThreadLocalRandom
 import kotlin.random.Random
 
@@ -70,14 +63,14 @@ class RandomFragment : Fragment() {
         //Get input elements
         val btnRandom = view.findViewById<Button>(R.id.btnRandom)
         val btnReset = view.findViewById<Button>(R.id.btnReset)
-        txtNum1 = view.findViewById<TextView>(R.id.txtRandomNum1)
-        txtNum2 = view.findViewById<TextView>(R.id.txtRandomNum2)
-        txtNum3 = view.findViewById<TextView>(R.id.txtRandomNum3)
-        txtNum4 = view.findViewById<TextView>(R.id.txtRandomNum4)
-        txtNum5 = view.findViewById<TextView>(R.id.txtRandomNum5)
-        txtNum6 = view.findViewById<TextView>(R.id.txtRandomNum6)
-        txtNum7 = view.findViewById<TextView>(R.id.txtRandomNum7)
-        txtNum8 = view.findViewById<TextView>(R.id.txtRandomNum8)
+        txtNum1 = view.findViewById<TextView>(R.id.txtUpdateNum1)
+        txtNum2 = view.findViewById<TextView>(R.id.txtUpdateNum2)
+        txtNum3 = view.findViewById<TextView>(R.id.txtUpdateNum3)
+        txtNum4 = view.findViewById<TextView>(R.id.txtUpdateNum4)
+        txtNum5 = view.findViewById<TextView>(R.id.txtUpdateNum5)
+        txtNum6 = view.findViewById<TextView>(R.id.txtUpdateNum6)
+        txtNum7 = view.findViewById<TextView>(R.id.txtUpdateNum7)
+        txtNum8 = view.findViewById<TextView>(R.id.txtUpdateNum8)
 
         //Assign Shared Preferences from Saved Game
         txtNum1.text = currentLotto.num1.toString()

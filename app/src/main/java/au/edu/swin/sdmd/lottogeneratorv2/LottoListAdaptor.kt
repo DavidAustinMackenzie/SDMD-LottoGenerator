@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 
@@ -37,7 +38,7 @@ class LottoListAdaptor(private val lottoList:ArrayList<Lotto>) :
         val num8 = itemView.findViewById<TextView>(R.id.txtNum8)
         val txtRowHeading = itemView.findViewById<TextView>(R.id.txtRowHeading)
 
-        fun bind(item: Lotto) = with(itemView){
+        fun bind(item: Lotto) = with(itemView) {
             txtRowHeading.text = "Lotto Game: " + item.game
             num1.text = item.num1.toString()
             num2.text = item.num2.toString()
@@ -48,12 +49,12 @@ class LottoListAdaptor(private val lottoList:ArrayList<Lotto>) :
             num7.text = item.num7.toString()
             num8.text = item.pow1.toString()
 
-            itemView.setOnClickListener{
+            itemView.setOnClickListener {
                 var activity = it.context as AppCompatActivity
                 var updateActivityDialogFragment = UpdateActivityDialogFragment()
-                updateActivityDialogFragment.show(activity.supportFragmentManager,"TAG")
+                updateActivityDialogFragment.show(activity.supportFragmentManager, "TAG")
                 var bundle = Bundle()
-                bundle.putInt("LOTTO_ID",item.id)
+                bundle.putInt("LOTTO_ID", item.id)
                 updateActivityDialogFragment.arguments = bundle
             }
         }
