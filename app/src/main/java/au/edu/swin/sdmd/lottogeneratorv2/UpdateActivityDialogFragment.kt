@@ -18,6 +18,7 @@ class UpdateActivityDialogFragment : BottomSheetDialogFragment() {
      private var currentLottoGame: Lotto? = null
 
     //Get output elements
+    lateinit var txtUpdateHeading: TextView
     lateinit var txtNum1: TextView
     lateinit var txtNum2: TextView
     lateinit var txtNum3: TextView
@@ -88,6 +89,8 @@ class UpdateActivityDialogFragment : BottomSheetDialogFragment() {
     private fun updateValues(currentLotto: Lotto,view: View)
     {
         //Update the values on the BottomDialogFragment
+        txtUpdateHeading = view.findViewById(R.id.txtUpdateHeading)
+        txtUpdateHeading.text = "Lotto Game: ${currentLotto.game}"
         txtNum1 = view.findViewById(R.id.txtUpdateNum1)
         txtNum1.text = currentLotto.num1.toString()
         txtNum2 = view.findViewById(R.id.txtUpdateNum2)
