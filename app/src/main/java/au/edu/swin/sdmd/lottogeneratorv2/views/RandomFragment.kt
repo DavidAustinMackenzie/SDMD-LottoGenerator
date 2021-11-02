@@ -1,4 +1,4 @@
-package au.edu.swin.sdmd.lottogeneratorv2
+package au.edu.swin.sdmd.lottogeneratorv2.views
 
 import android.content.Context
 import android.os.Bundle
@@ -9,6 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import au.edu.swin.sdmd.lottogeneratorv2.R
+import au.edu.swin.sdmd.lottogeneratorv2.db.LottoRoomDatabase
+import au.edu.swin.sdmd.lottogeneratorv2.models.Lotto
 import java.util.concurrent.ThreadLocalRandom
 import kotlin.random.Random
 
@@ -173,7 +176,7 @@ class RandomFragment : Fragment() {
     }
 
     //Used to retrieve previously saved Lotto Game
-    private fun checkSharedPrefs():Lotto{
+    private fun checkSharedPrefs(): Lotto {
         var currentLotto = Lotto(0,0,0,0,0,0,
         0,0,0)
         val sharedPref = this.context?.getSharedPreferences("SAVEDGAME",
@@ -192,7 +195,7 @@ class RandomFragment : Fragment() {
     }
 
     //Generate Random Numbers, num1-7 must be unique, no duplicates allowed and 1 Powerball value
-    private fun getRandomLottoGame():Lotto{
+    private fun getRandomLottoGame(): Lotto {
         //Get 7 randomly generated numbers to be used that are unique and create Int Array
         var numberList = ThreadLocalRandom.current().ints(1,36)
             .distinct().limit(7).toArray()

@@ -1,19 +1,20 @@
-package au.edu.swin.sdmd.lottogeneratorv2
+package au.edu.swin.sdmd.lottogeneratorv2.ui
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
+import au.edu.swin.sdmd.lottogeneratorv2.R
+import au.edu.swin.sdmd.lottogeneratorv2.models.Lotto
+import au.edu.swin.sdmd.lottogeneratorv2.views.UpdateActivityDialogFragment
 
 class LottoListAdaptor(private val lottoList:ArrayList<Lotto>) :
     RecyclerView.Adapter<LottoListAdaptor.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):
-            LottoListAdaptor.ViewHolder {
+            ViewHolder {
 
         val layoutInflater = LayoutInflater.from(parent.context)
         val view = layoutInflater
@@ -21,7 +22,7 @@ class LottoListAdaptor(private val lottoList:ArrayList<Lotto>) :
         return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: LottoListAdaptor.ViewHolder, position: Int)
+    override fun onBindViewHolder(holder: ViewHolder, position: Int)
     = holder.bind(lottoList[position])
 
     override fun getItemCount(): Int = lottoList.size

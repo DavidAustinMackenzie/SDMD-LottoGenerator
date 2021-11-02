@@ -1,4 +1,4 @@
-package au.edu.swin.sdmd.lottogeneratorv2
+package au.edu.swin.sdmd.lottogeneratorv2.models
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

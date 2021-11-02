@@ -7,17 +7,17 @@
 
     <fragment
         android:id="@+id/randomFragment"
-        android:name="au.edu.swin.sdmd.lottogeneratorv2.RandomFragment"
+        android:name="au.edu.swin.sdmd.lottogeneratorv2.views.RandomFragment"
         android:label="fragment_random"
         tools:layout="@layout/fragment_random" />
     <fragment
         android:id="@+id/savedFragment"
-        android:name="au.edu.swin.sdmd.lottogeneratorv2.SavedFragment"
+        android:name="au.edu.swin.sdmd.lottogeneratorv2.views.SavedFragment"
         android:label="fragment_saved"
         tools:layout="@layout/fragment_saved" />
     <fragment
         android:id="@+id/resultsFragment"
-        android:name="au.edu.swin.sdmd.lottogeneratorv2.ResultsFragment"
+        android:name="au.edu.swin.sdmd.lottogeneratorv2.views.ResultsFragment"
         android:label="fragment_results"
         tools:layout="@layout/fragment_results" />
 </navigation>

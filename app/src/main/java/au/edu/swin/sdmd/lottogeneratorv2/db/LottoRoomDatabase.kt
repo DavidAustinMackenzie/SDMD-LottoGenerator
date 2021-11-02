@@ -1,12 +1,10 @@
-package au.edu.swin.sdmd.lottogeneratorv2
+package au.edu.swin.sdmd.lottogeneratorv2.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import androidx.sqlite.db.SupportSQLiteDatabase
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.launch
+import au.edu.swin.sdmd.lottogeneratorv2.models.Lotto
 
 //Annotates class to be a Room Database with a table (entity) of the Lotto class
 @Database(entities = arrayOf(Lotto::class),version = 1, exportSchema = false)
@@ -18,7 +16,7 @@ abstract class LottoRoomDatabase: RoomDatabase() {
         private val LOCK = Any()
 
         operator fun invoke(context: Context)= instance ?: synchronized(LOCK){
-            instance ?: buildDatabase(context).also {instance = it}
+            instance ?: buildDatabase(context).also { instance = it}
         }
 
         private fun buildDatabase(context:Context) = Room.databaseBuilder(context,

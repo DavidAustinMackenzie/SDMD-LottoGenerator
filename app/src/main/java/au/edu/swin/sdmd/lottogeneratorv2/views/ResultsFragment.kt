@@ -1,4 +1,4 @@
-package au.edu.swin.sdmd.lottogeneratorv2
+package au.edu.swin.sdmd.lottogeneratorv2.views
 
 import android.os.Bundle
 import android.util.Log
@@ -8,11 +8,11 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import au.edu.swin.sdmd.lottogeneratorv2.R
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import okhttp3.OkHttpClient
 import okhttp3.Request
-import kotlinx.coroutines.coroutineScope as coroutineScope
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

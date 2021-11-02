@@ -1,13 +1,15 @@
-package au.edu.swin.sdmd.lottogeneratorv2
+package au.edu.swin.sdmd.lottogeneratorv2.views
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import au.edu.swin.sdmd.lottogeneratorv2.R
+import au.edu.swin.sdmd.lottogeneratorv2.db.LottoRoomDatabase
+import au.edu.swin.sdmd.lottogeneratorv2.models.Lotto
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import java.util.concurrent.ThreadLocalRandom
 import kotlin.random.Random
@@ -70,7 +72,7 @@ class UpdateActivityDialogFragment : BottomSheetDialogFragment() {
     }
 
     //Generate Random Numbers, num1-7 must be unique, no duplicates allowed and 1 Powerball value
-    private fun getNewRandomLottoGame(lottoGame:Lotto):Lotto{
+    private fun getNewRandomLottoGame(lottoGame: Lotto): Lotto {
         //Get 7 randomly generated numbers to be used that are unique and create Int Array
         var numberList = ThreadLocalRandom.current().ints(1,36)
             .distinct().limit(7).toArray()
@@ -86,7 +88,7 @@ class UpdateActivityDialogFragment : BottomSheetDialogFragment() {
     }
 
     //Update values on the view
-    private fun updateValues(currentLotto: Lotto,view: View)
+    private fun updateValues(currentLotto: Lotto, view: View)
     {
         //Update the values on the BottomDialogFragment
         txtUpdateHeading = view.findViewById(R.id.txtUpdateHeading)

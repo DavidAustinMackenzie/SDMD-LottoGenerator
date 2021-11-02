@@ -1,4 +1,4 @@
-package au.edu.swin.sdmd.lottogeneratorv2
+package au.edu.swin.sdmd.lottogeneratorv2.ui
 
 import android.util.Log
 import kotlinx.coroutines.GlobalScope

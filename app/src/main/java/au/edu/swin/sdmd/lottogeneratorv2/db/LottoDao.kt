@@ -1,7 +1,7 @@
-package au.edu.swin.sdmd.lottogeneratorv2
+package au.edu.swin.sdmd.lottogeneratorv2.db
 
 import androidx.room.*
-import kotlinx.coroutines.flow.Flow
+import au.edu.swin.sdmd.lottogeneratorv2.models.Lotto
 
 @Dao
 interface LottoDao {
@@ -12,7 +12,7 @@ interface LottoDao {
     fun getGame(id: Int): Lotto
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insert(lotto:Lotto)
+    fun insert(lotto: Lotto)
 
     @Delete
     fun delete(lotto: Lotto)
